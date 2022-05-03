@@ -6,6 +6,10 @@
 //回调函数，针对窗口
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
+
+const unsigned int SCR_WIDTH = 800;
+const unsigned int SCR_HEIGHT = 600;
+
 int main() {
 	glfwInit(); //初始化
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
