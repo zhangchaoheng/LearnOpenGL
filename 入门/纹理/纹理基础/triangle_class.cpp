@@ -94,6 +94,7 @@ int main() {
 	int width, height, nrChannels;
 	unsigned char* data = stbi_load("container.jpg", &width, &height, &nrChannels, 0);
 	if (data) {
+		//使用前面载入的图片数据生成一个纹理
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
 		glGenerateMipmap(GL_TEXTURE_2D);
 	}
@@ -115,6 +116,8 @@ int main() {
 		//画三角形
 		ourShader.use();
 		glBindVertexArray(VAO);
+
+		//自动把纹理赋值给片段着色器的采样器：sampler2D ourTexture,在片段着色器中
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
 		glfwSwapBuffers(window);//交换渲染好和已经展示的窗口缓冲，双缓冲
